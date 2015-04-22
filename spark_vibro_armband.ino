@@ -7,7 +7,6 @@ int vAll;
 
 int vibrateSensor(String command);
 
-
 void setup() {
     Spark.function("vibrate", vibrateSensor);
 
@@ -58,24 +57,20 @@ int vibrate(int motor) {
           delay(150);
       }
     } else if (motor == vAll) {
+
+      int vibroArray[4]={vTop,vRight,vBottom,vLeft};
+
       int startAll;
       for (startAll = 0; startAll < 2; startAll++) {
-          digitalWrite(vTop, HIGH);
-          delay(150);
-          digitalWrite(vTop, LOW);
-          delay(150);
-          digitalWrite(vRight, HIGH);
-          delay(150);
-          digitalWrite(vRight, LOW);
-          delay(150);
-          digitalWrite(vBottom, HIGH);
-          delay(150);
-          digitalWrite(vBottom, LOW);
-          delay(150);
-          digitalWrite(vLeft, HIGH);
-          delay(150);
-          digitalWrite(vLeft, LOW);
-          delay(150);
+        int i;
+        for (i = 0; i < 4; i = i + 1) {
+          int delayAll = 75;
+
+          digitalWrite(vibroArray[i], HIGH);
+          delay(delayAll);
+          digitalWrite(vibroArray[i], LOW);
+          delay(delayAll);
+        }
       }
     }
 
