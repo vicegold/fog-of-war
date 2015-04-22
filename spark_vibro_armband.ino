@@ -1,3 +1,4 @@
+int vAll = A0;
 int vLeft = A1;
 int vRight = A2;
 int vTop = A3;
@@ -46,6 +47,8 @@ int vibreateSensor(String command)
         vibrate(vBottom);
     } else if (command == "Top") {
         vibrate(vTop);
+    } else if (command == "All") {
+        vibrate(vAll);
     }
 
     return 0;
@@ -62,12 +65,34 @@ int vibrate(int motor) {
     } else if (motor == vLeft) {
         loops = 4;
     }
-    int start;
-    for (start = 0; start < loops; start++) {
-        digitalWrite(motor, HIGH);
-        delay(150);
-        digitalWrite(motor, LOW);
-        delay(150);
+    if (motor !== vAll) {
+      int start;
+      for (start = 0; start < loops; start++) {
+          digitalWrite(motor, HIGH);
+          delay(150);
+          digitalWrite(motor, LOW);
+          delay(150);
+      }
+    } else {
+      int start;
+      for (start = 0; start < 2; start++) {
+          digitalWrite(vTop, HIGH);
+          delay(150);
+          digitalWrite(vTop, LOW);
+          delay(150);
+          digitalWrite(vRight, HIGH);
+          delay(150);
+          digitalWrite(vRight, LOW);
+          delay(150);
+          digitalWrite(vBottom, HIGH);
+          delay(150);
+          digitalWrite(vBottom, LOW);
+          delay(150);
+          digitalWrite(vLeft, HIGH);
+          delay(150);
+          digitalWrite(vLeft, LOW);
+          delay(150);
+      }
     }
 
     return 0;
