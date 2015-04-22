@@ -1,24 +1,14 @@
-int vAll = A0;
 int vLeft = A1;
 int vRight = A2;
 int vTop = A3;
 int vBottom = A4;
+int vAll = A5;
 
-int vibreateSensor(String command);
+int vibrateSensor(String command);
 
 
 void setup() {
-    //Spark.function("leftOn", vibrateLeft);
-    //Spark.function("leftOff", vibrate_stopLeft);
-
-    /*Spark.function("rightOn", vibrateRight);
-    Spark.function("rightOff", vibrate_stopRight);
-
-    Spark.function("bottomOn", vibrateBottom);
-    Spark.function("bottomOff", vibrate_stopBottom);*/
-
-    //Spark.function("vibrate", webCommand)
-    Spark.function("vibrate", vibreateSensor);
+    Spark.function("vibrate", vibrateSensor);
 
     pinMode(vLeft, OUTPUT);
     pinMode(vRight, OUTPUT);
@@ -26,18 +16,7 @@ void setup() {
     pinMode(vBottom, OUTPUT);
 }
 
-int last = 0;
-
-void loop() {
-    analogWrite(vLeft, 160);
-    delay(200);
-    analogWrite(vLeft, 20);
-    delay(200);
-    analogWrite(vLeft, 255);
-    delay(200);
-}
-
-int vibreateSensor(String command)
+int vibrateSensor(String command)
 {
    if (command == "Left") {
         vibrate(vLeft);
@@ -74,8 +53,8 @@ int vibrate(int motor) {
           delay(150);
       }
     } else {
-      int start;
-      for (start = 0; start < 2; start++) {
+      int startAll;
+      for (startAll = 0; startAll < 2; startAll++) {
           digitalWrite(vTop, HIGH);
           delay(150);
           digitalWrite(vTop, LOW);
