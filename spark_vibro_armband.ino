@@ -44,7 +44,7 @@ int vibrate(int motor) {
     } else if (motor == vLeft) {
         loops = 4;
     }
-    if (motor !== vAll) {
+    if (motor != vAll) {
       int start;
       for (start = 0; start < loops; start++) {
           digitalWrite(motor, HIGH);
