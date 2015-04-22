@@ -16,7 +16,7 @@ void setup() {
     pinMode(vBottom, OUTPUT);
 }
 
-void loop {
+void loop() {
   // nothing to do here
 }
 
