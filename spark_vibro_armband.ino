@@ -57,7 +57,7 @@ int vibrate(int motor) {
           digitalWrite(motor, LOW);
           delay(150);
       }
-    } else {
+    } else if (motor == vAll) {
       int startAll;
       for (startAll = 0; startAll < 2; startAll++) {
           digitalWrite(vTop, HIGH);
