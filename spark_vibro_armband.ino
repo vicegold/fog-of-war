@@ -16,6 +16,10 @@ void setup() {
     pinMode(vBottom, OUTPUT);
 }
 
+void loop {
+  // nothing to do here
+}
+
 int vibrateSensor(String command)
 {
    if (command == "Left") {
