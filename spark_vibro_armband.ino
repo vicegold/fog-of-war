@@ -2,7 +2,8 @@ int vLeft = A1;
 int vRight = A2;
 int vTop = A3;
 int vBottom = A4;
-int vAll = A5;
+
+int vAll;
 
 int vibrateSensor(String command);
 
